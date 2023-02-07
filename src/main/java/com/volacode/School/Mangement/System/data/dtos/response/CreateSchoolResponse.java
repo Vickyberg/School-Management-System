@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class CreateSchoolResponse {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
     private String message;
     private int code;
 }

@@ -2,16 +2,13 @@ package com.volacode.School.Mangement.System.data.repositories;
 
 import com.volacode.School.Mangement.System.data.models.School;
 
-import jakarta.validation.constraints.NotNull;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 
 import java.util.Optional;
 
-@Repository
-public interface SchoolRepository extends MongoRepository<School, String> {
+public interface SchoolRepository extends JpaRepository<School, Long> {
 
-
-    @NotNull Optional<School> findById(@NotNull String id);
+    Optional<School> findById( Long id);
 
 }

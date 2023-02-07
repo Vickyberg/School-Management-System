@@ -1,6 +1,10 @@
 package com.volacode.School.Mangement.System.data.dtos.request;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -15,14 +19,22 @@ import org.springframework.validation.annotation.Validated;
 @AllArgsConstructor
 @Builder
 @Validated
+@Entity
 public class CreateSchoolRequest {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private  String id;
 
-    @NotNull(message = "name cannot be empty")
+    @NotNull(message = "name cannot be null")
     @NotEmpty(message = "name cannot be empty")
     private String name;
-    @NotNull(message = "address cannot be empty")
-    @NotEmpty(message = "address cannot be empty")
-    private String address;
+    @NotNull(message = "state cannot be null")
+    @NotEmpty(message = "state cannot be empty")
+    private String state;
+    @NotEmpty(message = "city cannot be empty")
+    @NotNull(message = "city cannot be null")
+    private String city;
+
 
 
 }
